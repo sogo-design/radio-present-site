@@ -46,6 +46,13 @@ let activeType = 'all';
 let activeStation = 'all';
 let showExpired = false;
 
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+// deadline が YYYY-MM-DD 形式でないものは「随時・毎週・毎月」などの継続企画とみなす
+function isRecurring(deadline) {
+  return !DATE_RE.test(String(deadline ?? ''));
+}
+
 function dayDiff(deadline) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -54,6 +61,11 @@ function dayDiff(deadline) {
 }
 
 function deadlineStatus(deadline) {
+  if (isRecurring(deadline)) {
+    const known = ['随時', '毎週', '毎月', '毎日', '継続中'];
+    const label = known.includes(deadline) ? deadline : '随時受付';
+    return { label, cls: 'recurring', diff: null, recurring: true };
+  }
   const diff = dayDiff(deadline);
   if (diff < 0)  return { label: '締切済み', cls: 'expired', diff };
   if (diff === 0) return { label: '本日締切！', cls: 'urgent', diff };
@@ -80,7 +92,7 @@ function snsIcon(type) {
 function renderCard(entry) {
   const st = STATIONS[entry.stationId] || { name: entry.station, freq: '', color: '#555', type: entry.type || 'am' };
   const ds = deadlineStatus(entry.deadline);
-  const isExpired = ds.diff < 0;
+  const isExpired = !ds.recurring && ds.diff < 0;
   const safeType = ['am', 'fm', 'nhk'].includes(st.type) ? st.type : 'am';
 
   const snsHtml = ['twitter', 'instagram', 'web']
@@ -99,13 +111,14 @@ function renderCard(entry) {
     }).join('');
 
   const applyUrl = safeUrl(entry.applyUrl);
+  const programUrl = safeUrl(entry.programUrl);
   const applyBtn = isExpired
     ? `<span class="apply-btn disabled">締切済み</span>`
     : applyUrl
       ? `<a href="${esc(applyUrl)}" target="_blank" rel="noopener" class="apply-btn">応募する →</a>`
-      : `<span class="apply-btn disabled">URL未定</span>`;
-
-  const programUrl = safeUrl(entry.programUrl);
+      : programUrl
+        ? `<a href="${esc(programUrl)}" target="_blank" rel="noopener" class="apply-btn secondary">番組ページ →</a>`
+        : `<span class="apply-btn disabled">番組内で応募</span>`;
   const programLabel = esc(entry.program);
   const programLink = programUrl
     ? `<a href="${esc(programUrl)}" target="_blank" rel="noopener">${programLabel}</a>`
@@ -132,7 +145,7 @@ function renderCard(entry) {
     <div class="deadline-row">
       <span class="deadline-label">締切</span>
       <span class="deadline-badge ${ds.cls}">${esc(ds.label)}</span>
-      <span class="deadline-date">${esc(formatDate(entry.deadline))}</span>
+      <span class="deadline-date">${esc(ds.recurring ? '' : formatDate(entry.deadline))}</span>
     </div>
     ${entry.applyMethod ? `<div class="apply-method">📮 ${esc(entry.applyMethod)}</div>` : ''}
   </div>
@@ -155,11 +168,16 @@ function applyFilters() {
     if (activeStation !== 'all' && entry.stationId !== activeStation) return false;
 
     const ds = deadlineStatus(entry.deadline);
-    if (!showExpired && ds.diff < 0) return false;
+    const expired = !ds.recurring && ds.diff < 0;
+    if (!showExpired && expired) return false;
 
-    if (deadlineFilter === 'today' && (ds.diff < 0 || ds.diff > 1)) return false;
-    if (deadlineFilter === 'week' && (ds.diff < 0 || ds.diff > 7)) return false;
-    if (deadlineFilter === 'month' && (ds.diff < 0 || ds.diff > 31)) return false;
+    // 締切ウィンドウ指定時、随時・継続企画（特定締切なし）は対象外
+    if (deadlineFilter !== 'all') {
+      if (ds.recurring) return false;
+      if (deadlineFilter === 'today' && (ds.diff < 0 || ds.diff > 1)) return false;
+      if (deadlineFilter === 'week' && (ds.diff < 0 || ds.diff > 7)) return false;
+      if (deadlineFilter === 'month' && (ds.diff < 0 || ds.diff > 31)) return false;
+    }
 
     if (keyword) {
       const haystack = [
@@ -171,12 +189,17 @@ function applyFilters() {
     return true;
   });
 
+  // 並び順: 締切が近い日付あり → 随時・継続 → 締切済み
   const sorted = filtered.slice().sort((a, b) => {
-    const da = dayDiff(a.deadline);
-    const db = dayDiff(b.deadline);
-    if (da < 0 && db >= 0) return 1;
-    if (db < 0 && da >= 0) return -1;
-    return da - db;
+    const sa = deadlineStatus(a.deadline);
+    const sb = deadlineStatus(b.deadline);
+    const ea = !sa.recurring && sa.diff < 0;
+    const eb = !sb.recurring && sb.diff < 0;
+    if (ea && !eb) return 1;
+    if (eb && !ea) return -1;
+    const ka = sa.recurring ? 1e7 : sa.diff;
+    const kb = sb.recurring ? 1e7 : sb.diff;
+    return ka - kb;
   });
 
   grid.innerHTML = sorted.length
@@ -187,8 +210,9 @@ function applyFilters() {
 }
 
 function updateStats(filtered) {
-  const urgentCount = filtered.filter(e => { const d = dayDiff(e.deadline); return d >= 0 && d <= 1; }).length;
-  const soonCount   = filtered.filter(e => { const d = dayDiff(e.deadline); return d >= 2 && d <= 7; }).length;
+  const urgentCount = filtered.filter(e => { const ds = deadlineStatus(e.deadline); return !ds.recurring && ds.diff >= 0 && ds.diff <= 1; }).length;
+  const soonCount   = filtered.filter(e => { const ds = deadlineStatus(e.deadline); return !ds.recurring && ds.diff >= 2 && ds.diff <= 7; }).length;
+  const ongoingCount = filtered.filter(e => deadlineStatus(e.deadline).recurring).length;
 
   const config = window.siteConfig || {};
   const lastUpdText = config.lastUpdated ? `最終更新: ${esc(config.lastUpdated)}` : '';
@@ -197,13 +221,14 @@ function updateStats(filtered) {
     <span>${Number(filtered.length)}件表示</span>
     ${urgentCount ? `<span class="stat-chip urgent-chip">🔥 本日・明日締切 ${Number(urgentCount)}件</span>` : ''}
     ${soonCount   ? `<span class="stat-chip soon-chip">⏰ 今週締切 ${Number(soonCount)}件</span>` : ''}
+    ${ongoingCount ? `<span class="stat-chip ongoing-chip">🔁 随時・継続 ${Number(ongoingCount)}件</span>` : ''}
     ${lastUpdText ? `<span style="margin-left:auto;color:var(--text-dim);font-size:11px">${lastUpdText}</span>` : ''}
   `;
 }
 
 function updateHeader() {
   const total = (window.presentsData || []).length;
-  const active = (window.presentsData || []).filter(e => dayDiff(e.deadline) >= 0).length;
+  const active = (window.presentsData || []).filter(e => { const ds = deadlineStatus(e.deadline); return ds.recurring || ds.diff >= 0; }).length;
   document.getElementById('active-count').textContent = `${active}件募集中`;
   const config = window.siteConfig || {};
   if (config.lastUpdated) {

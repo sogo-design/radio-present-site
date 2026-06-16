@@ -1,8 +1,111 @@
 // 東京ラジオ プレゼント情報データ
 // 自動更新: 毎朝スケジュールタスクが追記・更新
 // フォーマット: window.presentsData = [ ...entries ]
+// deadline は 'YYYY-MM-DD' か、継続企画の場合 '随時' / '毎週' / '毎月' / '毎日'
 
 window.presentsData = [
+  {
+    id: 'tbs-so-protein-20260622',
+    stationId: 'tbs',
+    station: 'TBSラジオ',
+    program: 'ジェーン・スー 生活は踊る／火曜のプレゼントコーナー',
+    programUrl: 'https://www.tbsradio.jp/so/',
+    prize: 'ドクターズ ナチュラルレシピ 美容プロテイン リッチ 350g（定価3,990円）を抽選で10名様',
+    deadline: '2026-06-22',
+    applyUrl: 'https://form.id.tbs.co.jp/form/rd_present_01/',
+    applyMethod: '公式サイトのフォームから応募（TBS IDの無料登録が必要）',
+    sns: {
+      twitter: '@seikatsu954905',
+      instagram: '@seikatsu954905',
+      web: 'https://www.tbsradio.jp/so/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tbs-chill-sticker-20260616',
+    stationId: 'tbs',
+    station: 'TBSラジオ',
+    program: 'CITY CHILL CLUB',
+    programUrl: 'https://www.tbsradio.jp/chill/',
+    prize: 'CITY CHILL CLUB 番組サイン入りステッカー',
+    deadline: '随時',
+    applyUrl: null,
+    applyMethod: '番組公式X（旧Twitter）の告知ポストから応募',
+    sns: {
+      twitter: '@CITY_CHILL_CLUB',
+      instagram: '@city.chill.club',
+      web: 'https://www.tbsradio.jp/chill/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'nippon-asa-ai-20260616',
+    stationId: 'nippon',
+    station: 'ニッポン放送',
+    program: 'ニッポン放送 朝の番組／朝からアイが聴こえるニッポン放送',
+    programUrl: 'https://www.allnightnippon.com/',
+    prize: 'JCBギフトカード10,000円分を抽選で50名様',
+    deadline: '随時',
+    applyUrl: 'https://ssl.1242.com/aplform/form/aplform.php?fcode=asa-ai-2606',
+    applyMethod: '平日朝の3番組で発表されるキーワードを聞いて応募フォームから応募',
+    sns: {
+      twitter: '@cozy1242',
+      instagram: '@cozyup1242',
+      web: 'https://www.allnightnippon.com/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'nippon-zoom-surisuri-20260616',
+    stationId: 'nippon',
+    station: 'ニッポン放送',
+    program: '辛坊治郎ズーム そこまで言うか!／ジローのすりすり',
+    programUrl: 'https://www.1242.com/zoom/',
+    prize: '番組ノベルティ ジローのすりすり（ガラス製爪やすり）をサイコロの出た目の人数分',
+    deadline: '毎週',
+    applyUrl: null,
+    applyMethod: '生放送中（月～木 15:30-17:30）にメール zoom@1242.com で応募',
+    sns: {
+      twitter: '@zoom1242',
+      instagram: null,
+      web: 'https://www.1242.com/zoom/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'nippon-hills-20260616',
+    stationId: 'nippon',
+    station: 'ニッポン放送',
+    program: '高田文夫のラジオビバリー昼ズ／デイリープレゼント',
+    programUrl: 'https://www.1242.com/hills/',
+    prize: 'ビバリー名刺シール（毎日3名様）／今日のお題採用で1,000円分のクオカード（1名様）',
+    deadline: '毎日',
+    applyUrl: null,
+    applyMethod: 'メール hills@1242.com・はがき・FAXで応募',
+    sns: {
+      twitter: '@hills1242',
+      instagram: null,
+      web: 'https://www.1242.com/hills/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'bunka-itoshiro-beiju-20260616',
+    stationId: 'bunka',
+    station: '文化放送',
+    program: '伊東四朗 米寿記念 文化放送リポストキャンペーン',
+    programUrl: 'https://www.joqr.co.jp/qr/article/152544/',
+    prize: '米寿記念デザインのオリジナルQUOカード5,000円分を抽選で88名様',
+    deadline: '2026-06-16',
+    applyUrl: null,
+    applyMethod: '文化放送公式X（@joqrpr）をフォロー＋対象ポストをリポスト',
+    sns: {
+      twitter: '@joqrpr',
+      instagram: null,
+      web: 'https://www.joqr.co.jp/qr/article/152544/'
+    },
+    addedDate: '2026-06-16'
+  },
   {
     id: 'tokyofm-madocafe-20260630',
     stationId: 'tokyofm',
@@ -48,7 +151,7 @@ window.presentsData = [
     applyUrl: 'https://www.tfm.co.jp/f/agripower/form',
     applyMethod: '公式サイトから応募',
     sns: {
-      twitter: null,
+      twitter: '@agri_tfm',
       instagram: null,
       web: 'https://www.tfm.co.jp/agripower/'
     },
@@ -89,6 +192,159 @@ window.presentsData = [
     addedDate: '2026-06-16'
   },
   {
+    id: 'tokyofm-solution-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'ONE MORNING／Solution in my life',
+    programUrl: 'https://www.tfm.co.jp/solution/',
+    prize: 'QUOカード3,000円分（毎月5名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/f/om/solution',
+    applyMethod: '番組メッセージフォームから投稿して応募',
+    sns: {
+      twitter: '@ONEMORNING_1',
+      instagram: null,
+      web: 'https://www.tfm.co.jp/one/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-starters-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'ONE MORNING／The Starters',
+    programUrl: 'https://www.tfm.co.jp/starters/',
+    prize: '図書カードNEXT 3,000円分（10名様）',
+    deadline: '随時',
+    applyUrl: 'https://www.tfm.co.jp/starters/index.php?catid=3072',
+    applyMethod: '番組メッセージフォームから投稿して応募（火曜のコーナー）',
+    sns: {
+      twitter: '@ONEMORNING_1',
+      instagram: null,
+      web: 'https://www.tfm.co.jp/starters/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-truck-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'ONE MORNING／東京都トラック協会 トラックドライバー応援',
+    programUrl: 'https://www.tfm.co.jp/present/truck/',
+    prize: 'QUOカード3,000円分（毎月10名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/present/truck/',
+    applyMethod: '応募フォームに応援メッセージを添えて応募',
+    sns: {
+      twitter: '@ONEMORNING_1',
+      instagram: null,
+      web: 'https://www.tfm.co.jp/present/truck/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-blueprint-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'SCHOOL OF LOCK!／Blue Print supported by MIZUHO',
+    programUrl: 'https://www.tfm.co.jp/lock/blueprint/',
+    prize: 'オリジナルQUOカードPay 3,000円分',
+    deadline: '随時',
+    applyUrl: 'https://www.tfm.co.jp/lock/blueprint/',
+    applyMethod: '今の夢についてのメッセージを専用フォームから投稿（採用者に進呈）',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/lock/blueprint/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-emo-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'ディア・フレンズ／明治ミルクチョコレート presents e.m.oリクエスト',
+    programUrl: 'https://www.tfm.co.jp/dear/',
+    prize: '明治ミルクチョコレートセット（毎月10名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/f/darehana/item_emo',
+    applyMethod: 'リクエスト曲とエピソードを専用フォームから投稿',
+    sns: {
+      twitter: null,
+      instagram: '@dearfriends80',
+      web: 'https://www.tfm.co.jp/dear/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-sky-koikeya-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'Skyrocket Company／湖池屋歌エール 国産火曜曲',
+    programUrl: 'https://www.tfm.co.jp/sky/',
+    prize: '湖池屋お菓子詰め合わせ',
+    deadline: '随時',
+    applyUrl: 'https://www.tfm.co.jp/f/sc/message',
+    applyMethod: '番組メッセージフォームから投稿して応募（火曜のコーナー）',
+    sns: {
+      twitter: '@Skyrocket_Co',
+      instagram: null,
+      web: 'https://www.tfm.co.jp/sky/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-sky-ichiban-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'Skyrocket Company／一番搾り RAPで乾杯 アゲ↑ラップ',
+    programUrl: 'https://www.tfm.co.jp/sky/',
+    prize: 'キリン一番搾り 350ml缶 1ケース（24本入）',
+    deadline: '随時',
+    applyUrl: 'https://www.tfm.co.jp/f/sc/message',
+    applyMethod: 'メッセージフォームから投稿して応募（火曜のコーナー・20歳以上）',
+    sns: {
+      twitter: '@Skyrocket_Co',
+      instagram: null,
+      web: 'https://www.tfm.co.jp/sky/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-kando-20260616',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: '毎日に夢中 感動プロデューサー・小林章一',
+    programUrl: 'https://www.tfm.co.jp/podcasts/kando/',
+    prize: 'アルビオン 薬用スキコン＆ソープ セット（毎月抽選3名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/podcasts/kando/',
+    applyMethod: '番組メッセージフォームから投稿して応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/podcasts/kando/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'tokyofm-treasures-20260930',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'Volkswagen TREASURES',
+    programUrl: 'https://www.tfm.co.jp/treasures/',
+    prize: 'オリジナルデザインQUOカードPay 3,000円分',
+    deadline: '2026-09-30',
+    applyUrl: 'https://www.tfm.co.jp/treasures/',
+    applyMethod: '宝物にまつわるエピソードを投稿（月～木 16:50-17:00・放送採用で進呈）',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/treasures/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
     id: 'jwave-blueingreen-20260716',
     stationId: 'jwave',
     station: 'J-WAVE',
@@ -102,6 +358,23 @@ window.presentsData = [
       twitter: null,
       instagram: null,
       web: 'https://www.j-wave.co.jp/original/blueingreen/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'jwave-seasons-20260616',
+    stationId: 'jwave',
+    station: 'J-WAVE',
+    program: 'J-WAVE SEASONS',
+    programUrl: 'https://www.j-wave.co.jp/original/seasons/',
+    prize: 'モンカフェ ブレンドコーヒー詰め合わせ＋番組オリジナルグッズ（毎月15名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.j-wave.co.jp/original/seasons/present/',
+    applyMethod: '番組プレゼントページの応募フォームから応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.j-wave.co.jp/original/seasons/present/'
     },
     addedDate: '2026-06-16'
   },
@@ -156,9 +429,94 @@ window.presentsData = [
     },
     addedDate: '2026-06-16'
   },
+  {
+    id: 'interfm-dfs-20260616',
+    stationId: 'interfm',
+    station: 'InterFM897',
+    program: 'The Dave Fromm Show',
+    programUrl: 'https://www.interfm.co.jp/dfs',
+    prize: '番組ステッカー（リスナー数名様）',
+    deadline: '随時',
+    applyUrl: null,
+    applyMethod: 'メール dave@interfm.jp・X #dfs897 で番組へ投稿',
+    sns: {
+      twitter: '@DFS897',
+      instagram: null,
+      web: 'https://www.interfm.co.jp/dfs'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'bayfm-cuemon-20260616',
+    stationId: 'bayfm',
+    station: 'bayfm78',
+    program: '9の音粋（キュウオン）',
+    programUrl: 'https://program.bayfm.co.jp/cuemon/',
+    prize: '番組特製ステッカー（クイズ正解者対象）',
+    deadline: '随時',
+    applyUrl: null,
+    applyMethod: '放送内クイズに解答しメール cue@bayfm.co.jp へ送信',
+    sns: {
+      twitter: '@cue78MHz',
+      instagram: null,
+      web: 'https://program.bayfm.co.jp/cuemon/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'nack5-smilequiz-20260616',
+    stationId: 'nack5',
+    station: 'NACK5',
+    program: 'Smile SUMMIT／Smile Quiz',
+    programUrl: 'https://www.nack5.co.jp/program/smilesummit/',
+    prize: 'クイズ専用ステッカー（正解者から抽選で1名様）',
+    deadline: '随時',
+    applyUrl: null,
+    applyMethod: '番組公式Xに #smile795 を付けて投稿（放送内クイズに解答）',
+    sns: {
+      twitter: '@smilesummit795',
+      instagram: null,
+      web: 'https://www.nack5.co.jp/program/smilesummit/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'nack5-gogomonz-20260616',
+    stationId: 'nack5',
+    station: 'NACK5',
+    program: 'GOGOMONZ',
+    programUrl: 'https://www.nack5.co.jp/program/gogomonz/',
+    prize: '鬼丸・横田かおりのサイン入りステッカー、らじっと君ステッカー 等',
+    deadline: '随時',
+    applyUrl: null,
+    applyMethod: '番組宛メッセージで応募（当選者は番組ブログで発表）',
+    sns: {
+      twitter: '@gogomonz795',
+      instagram: null,
+      web: 'https://www.nack5.co.jp/program/gogomonz/'
+    },
+    addedDate: '2026-06-16'
+  },
+  {
+    id: 'nack5-haagen-20260616',
+    stationId: 'nack5',
+    station: 'NACK5',
+    program: 'NACK5 ハーゲンダッツギフト券プレゼント',
+    programUrl: 'https://www.nack5.co.jp/message/2412/',
+    prize: 'ハーゲンダッツ ミニカップ／クリスピーサンド／バー いずれか2個のギフト券',
+    deadline: '随時',
+    applyUrl: 'https://www.nack5.co.jp/message/2412/',
+    applyMethod: 'Web応募フォームから応募（募集期間はオンエアで告知）',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.nack5.co.jp/message/2412/'
+    },
+    addedDate: '2026-06-16'
+  },
 ];
 
 window.siteConfig = {
   lastUpdated: '2026-06-16',
-  totalCount: 9
+  totalCount: 30
 };

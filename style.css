@@ -234,6 +234,7 @@ header {
 
 .stat-chip.urgent-chip { border-color: rgba(232, 64, 64, 0.4); color: var(--urgent); }
 .stat-chip.soon-chip { border-color: rgba(224, 128, 32, 0.4); color: var(--soon); }
+.stat-chip.ongoing-chip { border-color: rgba(99, 84, 232, 0.4); color: var(--accent); }
 
 /* ── Grid ── */
 .grid-wrap {
@@ -410,6 +411,12 @@ header {
   border: 1px solid rgba(100,100,110,0.25);
 }
 
+.deadline-badge.recurring {
+  background: rgba(99, 84, 232, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(99, 84, 232, 0.3);
+}
+
 .deadline-date {
   font-size: 11px;
   color: var(--text-muted);
@@ -477,6 +484,12 @@ header {
 
 .apply-btn:hover { opacity: 0.85; transform: translateY(-1px); }
 .apply-btn.disabled { background: var(--border); color: var(--text-dim); cursor: default; pointer-events: none; }
+.apply-btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(99, 84, 232, 0.4);
+}
+.apply-btn.secondary:hover { background: rgba(99, 84, 232, 0.08); }
 
 /* ── Empty State ── */
 .empty-state {
