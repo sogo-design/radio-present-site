@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東京ラジオ プレゼント情報</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1 class="site-title">
+      <span class="icon">📻</span>
+      東京ラジオ プレゼント情報
+    </h1>
+    <div class="header-meta">
+      <span class="update-badge" id="active-count">読み込み中...</span>
+      <span class="last-update" id="last-update"></span>
+    </div>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <div class="type-tabs">
+    <button class="tab active" data-type="all">ALL</button>
+    <button class="tab" data-type="am">AM</button>
+    <button class="tab" data-type="fm">FM</button>
+    <button class="tab" data-type="nhk">NHK</button>
+  </div>
+
+  <select class="deadline-select" id="deadline-filter">
+    <option value="all">締切：全て</option>
+    <option value="today">今日・明日</option>
+    <option value="week">今週中</option>
+    <option value="month">今月中</option>
+  </select>
+
+  <select class="station-select" id="station-filter">
+    <option value="all">局：全て</option>
+    <optgroup label="AM">
+      <option value="tbs">TBSラジオ</option>
+      <option value="nippon">ニッポン放送</option>
+      <option value="bunka">文化放送</option>
+    </optgroup>
+    <optgroup label="FM">
+      <option value="tokyofm">TOKYO FM</option>
+      <option value="jwave">J-WAVE</option>
+      <option value="interfm">InterFM897</option>
+      <option value="bayfm">bayfm</option>
+      <option value="nack5">NACK5</option>
+    </optgroup>
+    <optgroup label="NHK">
+      <option value="nhkr1">NHKラジオ第1</option>
+      <option value="nhkr2">NHKラジオ第2</option>
+      <option value="nhkfm">NHK-FM</option>
+    </optgroup>
+  </select>
+
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input class="search-input" id="search" type="text" placeholder="番組名・賞品で検索...">
+  </div>
+
+  <div class="filter-right">
+    <label class="show-expired-toggle">
+      <input type="checkbox" id="show-expired">
+      締切済みも表示
+    </label>
+  </div>
+</div>
+
+<div id="stats-bar" class="stats-bar"></div>
+
+<div class="grid-wrap">
+  <div class="grid" id="grid">
+    <div class="empty-state">
+      <span class="icon">📡</span>
+      <h3>データを読み込み中...</h3>
+      <p>スケジュールタスクが毎日情報を更新します</p>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
