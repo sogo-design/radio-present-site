@@ -514,9 +514,145 @@ window.presentsData = [
     },
     addedDate: '2026-06-16'
   },
+  {
+    id: 'tokyofm-olympics-20260630',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: '5分では伝えきれないスペシャルオリンピックスの世界',
+    programUrl: 'https://www.tfm.co.jp/present/olympics/',
+    prize: 'スペシャルオリンピックス日本・トヨタ コラボトートバッグ（毎月5名様・4〜6月計15名様）',
+    deadline: '2026-06-30',
+    applyUrl: 'https://www.tfm.co.jp/present/olympics/',
+    applyMethod: '公式サイトから応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/present/olympics/'
+    },
+    addedDate: '2026-06-18'
+  },
+  {
+    id: 'tokyofm-shotime-20260618',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'SHO TIME Report',
+    programUrl: null,
+    prize: 'アパ社長カレー10個セット（毎月10名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/f/shotime/message',
+    applyMethod: '番組メッセージフォームから投稿して応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: null
+    },
+    addedDate: '2026-06-18'
+  },
+  {
+    id: 'tokyofm-remixz-20260618',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'リミックスZ',
+    programUrl: 'https://audee.jp/program/show/16735',
+    prize: 'QUOカードPay 3,000円分（毎週5名様）',
+    deadline: '毎週',
+    applyUrl: 'https://audee.jp/program/show/16735',
+    applyMethod: 'Audeeの番組ページから応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://audee.jp/program/show/16735'
+    },
+    addedDate: '2026-06-18'
+  },
+  {
+    id: 'tokyofm-masuoka-20260618',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'ますだおかだのここキク！',
+    programUrl: 'https://www.tfm.co.jp/masuoka/',
+    prize: 'グランプリ1名：QUOカード10,000円分＋サントリーウエルネス商品セット／その他5名：QUOカード5,000円分＋サントリーウエルネス商品セット',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/f/masuoka/message',
+    applyMethod: 'マンスリーテーマのエピソードを番組メッセージフォームから投稿して応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/masuoka/'
+    },
+    addedDate: '2026-06-18'
+  },
+  {
+    id: 'tokyofm-gogofamily-20260618',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'GO！GO！家族',
+    programUrl: 'https://www.tfm.co.jp/podcasts/gogofamily/',
+    prize: 'Amazonギフトカード5,000円分（毎月）',
+    deadline: '毎月',
+    applyUrl: null,
+    applyMethod: '番組で家族エピソードが読まれると当選（番組メッセージフォームから投稿）',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/podcasts/gogofamily/'
+    },
+    addedDate: '2026-06-18'
+  },
+  {
+    id: 'tokyofm-manten-20260618',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'KUMON笑顔100点満点',
+    programUrl: 'https://www.tfm.co.jp/manten/',
+    prize: 'QUOカード5,000円分（毎月10名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/manten/',
+    applyMethod: '公式サイトから応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/manten/'
+    },
+    addedDate: '2026-06-18'
+  },
+  {
+    id: 'tokyofm-mantenrelay-20260618',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'KUMON大学生リレー',
+    programUrl: 'https://www.tfm.co.jp/mantenrelay/',
+    prize: 'QUOカード5,000円分（毎月）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/mantenrelay/',
+    applyMethod: '公式サイトから応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/mantenrelay/'
+    },
+    addedDate: '2026-06-18'
+  },
+  {
+    id: 'nack5-allthefeels-20260618',
+    stationId: 'nack5',
+    station: 'NACK5',
+    program: 'ALL The Feels',
+    programUrl: null,
+    prize: 'サイン入りステッカー',
+    deadline: '随時',
+    applyUrl: 'https://www.nack5.co.jp/message/4514/',
+    applyMethod: '専用フォームから応募（ラジオネーム・氏名・住所等を記入）',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.nack5.co.jp/message/4514/'
+    },
+    addedDate: '2026-06-18'
+  },
 ];
 
 window.siteConfig = {
-  lastUpdated: '2026-06-16',
-  totalCount: 30
+  lastUpdated: '2026-06-18',
+  totalCount: 38
 };
