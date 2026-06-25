@@ -650,9 +650,60 @@ window.presentsData = [
     },
     addedDate: '2026-06-18'
   },
+  {
+    id: 'tokyofm-saunarsgarden-20260625',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'ナチュラルスパ presents TOKYO SAUNAR\'S GARDEN',
+    programUrl: 'https://audee.jp/program/show/300005109',
+    prize: 'QUOカード1,000円分（毎月10名様）',
+    deadline: '毎月',
+    applyUrl: 'https://www.tfm.co.jp/f/nakauesauna/message',
+    applyMethod: '番組メッセージフォームから投稿（プレゼント応募欄で「はい」を選択）して応募',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://audee.jp/program/show/300005109'
+    },
+    addedDate: '2026-06-25'
+  },
+  {
+    id: 'tokyofm-mangaworld-20260625',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: 'まんが王国 presents「世界はまんがで出来ている！」',
+    programUrl: 'https://www.tfm.co.jp/mangaworld/',
+    prize: 'まんが王国クーポン3,000円分相当（ふつおた採用者に進呈）',
+    deadline: '随時',
+    applyUrl: 'https://www.tfm.co.jp/f/mangaworld/message',
+    applyMethod: '番組メッセージフォームからふつおた（感想・質問・マンガ相談）を投稿して応募',
+    sns: {
+      twitter: '@sekaihamangade',
+      instagram: null,
+      web: 'https://www.tfm.co.jp/mangaworld/'
+    },
+    addedDate: '2026-06-25'
+  },
+  {
+    id: 'tokyofm-choice-20260625',
+    stationId: 'tokyofm',
+    station: 'TOKYO FM',
+    program: '鞘師里保のライフアップ・チョイス',
+    programUrl: 'https://www.tfm.co.jp/choice/',
+    prize: 'オリジナルステッカー（番組でリコメンドが紹介されると進呈）',
+    deadline: '随時',
+    applyUrl: 'https://www.tfm.co.jp/choice/',
+    applyMethod: '番組メッセージフォームからおすすめしたいモノ・コト・サービスを投稿して紹介されると進呈',
+    sns: {
+      twitter: null,
+      instagram: null,
+      web: 'https://www.tfm.co.jp/choice/'
+    },
+    addedDate: '2026-06-25'
+  },
 ];
 
 window.siteConfig = {
-  lastUpdated: '2026-06-18',
-  totalCount: 38
+  lastUpdated: '2026-06-25',
+  totalCount: 41
 };
